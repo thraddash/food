@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+[![Node version][node-shield]][node-url]
+[![npm version][npm-shield]][npm-url]
+[![GitHub commit activity][commits-shield]][commits-url]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Songs React-Redux App
+<img src="https://github.com/thraddash/food/blob/master/src/images/mockup.jpg" width="500" title="Mockup">
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#initial-setup">Initial Setup</a></li>
+        <li><a href="#cors-issues">has been blocked by CORS: policy</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#starting-the-app">Starting the App</a></li>
 
-In the project directory, you can run:
+  </ol>
+</details>
 
-### `npm start`
+## About the Project
+- Search recipes using http://edamam.com api 
+- onClick URL, navigates user to new browser tab  
+- onClick ingredients button, shows additional details about the recipe  
+- trigger an Alert message if the search item cannot be found or is empty  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### modules used
+- axios  
+- uuid  
+- dotenv  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Initial Setup
+npm install dotenv  
+#### create a .env file, look at .env.sample for reference  
+The .env file will house your edamam api_id and api_key.  
+Note: .env is added to .gitignore   
 
-### `npm test`
+```node
+REACT_APP_ID = ENTER_YOUR_API_ID
+REACT_APP_KEY = ENTER_YOUR_API_KEY
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## CORS Issues
+- used params to set origin with wildcard   
+the value tells the browser to allow requesting code from any origin to access the resource  
 
-### `npm run build`
+```node
+require('dotenv').config({ path: '../../.env' });
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const API_ID = process.env.REACT_APP_ID;
+const API_KEY = process.env.REACT_APP_KEY;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+const result = await Axios.get('https://api.edamam.com/search', {
+  params: {
+    q: `${query}`,
+    app_key: API_KEY,
+    app_id: API_ID,
+    origin: '*',
+    format: 'json'
+  }
+});
+```
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- GETTING STARTED -->
+## Getting Started
+To get a local copy up and running follow these simple steps.
 
-### `npm run eject`
+### Prerequisites
+1. node v14.15.5 installed
+2. npm 6.14.11 installed
+3. npm install uuid dotenv axios --save
+ 
+### Starting the App
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repo
+   ```sh
+   git clone https://github.com/thraddash/widgets.git
+   ```
+2. npm install
+   ```
+   install npm modules from package.json
+   ```
+3. npm start
+   ```
+   Runs the app in the development mode.
+   Open http://localhost:3000 to view it in the browser.
+   ``` 
+  
+<!-- MARKDOWN LINKS & IMAGES -->
+[node-shield]: https://img.shields.io/badge/node-v14.15.5-blue
+[node-url]: https://nodejs.org/
+[npm-shield]: https://img.shields.io/badge/npm-v6.14.11-orange
+[npm-url]: https://www.npmjs.com/package/npm-install
+[commits-shield]: https://img.shields.io/badge/commits-6-green.svg
+[commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food
+[product-screenshot]: /src/images/
