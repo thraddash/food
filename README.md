@@ -84,13 +84,22 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/thraddash/widgets.git
+   git clone https://github.com/thraddash/food.git
    ```
 2. npm install
    ```
    install npm modules from package.json
    ```
-3. npm start
+3. register an account https://edamam.com
+   ```
+   navigate to dashboard/application to retreive id/key
+   ```
+5. cp .env.sample .env  
+   ```
+   copy .env.sample file and save it as .env
+   update the api_id and api_key with your edamam account
+   ```
+5. npm start
    ```
    Runs the app in the development mode.
    Open http://localhost:3000 to view it in the browser.
@@ -101,6 +110,6 @@ To get a local copy up and running follow these simple steps.
 [node-url]: https://nodejs.org/
 [npm-shield]: https://img.shields.io/badge/npm-v6.14.11-orange
 [npm-url]: https://www.npmjs.com/package/npm-install
-[commits-shield]: https://img.shields.io/badge/commits-12-green.svg
+[commits-shield]: https://img.shields.io/badge/commits-13-green.svg
 [commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food
 [product-screenshot]: /src/images/
